@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://b04vd28h58oga"]
+
+[ext_resource type="Script" path="res://Scenes/Opening.gd" id="1_qmg81"]
+[ext_resource type="Texture2D" uid="uid://bb5w1albfmnwv" path="res://data/core/graphics/Logos/logo_large_color_dark.svg" id="2_djb8q"]
+[ext_resource type="Texture2D" uid="uid://dhagwqx7ukbkr" path="res://data/core/graphics/Logos/97619e6b1d2493ca96b18ad83c053fe4c0d1ee9aab694078a30353c8c17179bf.png" id="3_lx4he"]
+
+[node name="OpeningScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qmg81")
+next_scene = "res://Scenes/GameMenus/MainMenu/MainMenu.tscn"
+images = Array[Texture2D]([ExtResource("2_djb8q"), ExtResource("3_lx4he")])
+visible_time = 10.0
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+autoplay = true
+
+[node name="ImagesContainer" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2

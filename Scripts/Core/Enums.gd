@@ -1,0 +1,3 @@
+class_name Enums
+enum MapResourceType {DEBUG, SMALL, MEDIUM, LARGE, CUSTOM}
+enum MapShape {RECTANGLE,HEXAGON,PARRALLELOGRAM,TRIANGLE}

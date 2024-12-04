@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3trphqgyf5rp"]
+
+[ext_resource type="Script" path="res://Scenes/GameMenus/MapEditorMenu/DungeonGenerator/DungeonGenerator.gd" id="1_8abpg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ipbap"]
+
+[node name="DungeonGenerator" type="Node2D"]
+script = ExtResource("1_8abpg")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(500, 500)
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 520.0
+offset_bottom = 520.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ipbap")
