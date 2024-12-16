@@ -1,0 +1,68 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="BaseTemplate"
+config/version="0.1.0+build.9C215425"
+run/main_scene="res://Scenes/GameMenus/MainMenu/MainMenu.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="chicken105/baseTemplate"
+config/features=PackedStringArray("4.3", "Mobile")
+boot_splash/show_image=false
+config/icon="user://data/core/graphics/logos/icon.png"
+
+[autoload]
+
+Log="*res://Autoload/General/Logger/LogStream.gd"
+GamepadControllerManager="*res://Autoload/General/Input/GameControllerManager.gd"
+AudioManager="*res://Autoload/Audio/AudioManager.gd"
+MusicManager="*res://Autoload/Audio/MusicManager.gd"
+SoundPool="*res://Autoload/Audio/SoundPool.gd"
+WindowManager="*res://Autoload/Viewort/WindowManager.gd"
+SettingsHandler="*res://Autoload/General/Settings/SettingsHandler.gd"
+SceneLoader="*res://Scripts/Core/SceneLoader/SceneLoader.gd"
+
+[debug]
+
+file_logging/log_path="user://logs/chicken105_.log"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/initial_position_type=0
+window/stretch/mode="canvas_items"
+
+[editor]
+
+naming/scene_name_casing=1
+naming/script_name_casing=1
+version_control/autoload_on_startup=true
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "yellow",
+"res://Autoload/": "orange",
+"res://Helper/": "red",
+"res://Scenes/": "pink",
+"res://Scripts/": "purple",
+"res://UI/": "green"
+}
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://Scenes/GameMenus/MainMenu/MainMenu.tscn")
+locale/include_text_server_data=true

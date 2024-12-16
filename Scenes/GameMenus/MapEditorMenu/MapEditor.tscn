@@ -1,0 +1,128 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlyp6saxvnxs8"]
+
+[ext_resource type="Script" path="res://Scenes/GameMenus/MapEditorMenu/MapEditor.gd" id="1_7rhxl"]
+[ext_resource type="Script" path="res://Scripts/GUI/VectorElement.gd" id="2_b8r4m"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7y0no"]
+frequency = 0.0001
+fractal_octaves = 4
+fractal_lacunarity = 6.805
+fractal_gain = 0.69
+fractal_weighted_strength = 0.28
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hau4d"]
+noise = SubResource("FastNoiseLite_7y0no")
+
+[node name="MapEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 185.0
+offset_top = 52.0
+offset_right = 185.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7rhxl")
+metadata/_edit_vertical_guides_ = [-462.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1130, 448)
+texture = SubResource("NoiseTexture2D_hau4d")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_top = 405.5
+offset_right = 40.0
+offset_bottom = 445.5
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MapSize" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_b8r4m")
+name_ = "Map Size "
+
+[node name="Seed" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Seed"]
+layout_mode = 2
+text = "SEED"
+
+[node name="SeedSlider" type="HSlider" parent="MarginContainer/VBoxContainer/Seed"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1000.0
+
+[node name="Freq" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Freq"]
+layout_mode = 2
+text = "FREQ"
+
+[node name="FreqSlider" type="HSlider" parent="MarginContainer/VBoxContainer/Freq"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 0.01
+step = 0.0
+
+[node name="Smothness" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Smothness"]
+layout_mode = 2
+text = "FractalLacunarity
+"
+
+[node name="FractalLacunarityLabel" type="Label" parent="MarginContainer/VBoxContainer/Smothness"]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="FractalLacunaritySlider" type="HSlider" parent="MarginContainer/VBoxContainer/Smothness"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 1.8
+max_value = 4.0
+step = 0.01
+value = 1.8
+
+[node name="FractalOctaves" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/FractalOctaves"]
+layout_mode = 2
+text = "FractalOctaves: "
+
+[node name="FractalOctavesLabel" type="Label" parent="MarginContainer/VBoxContainer/FractalOctaves"]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+text = "FractalOctaves
+"
+
+[node name="FractalOctavesSlider" type="HSlider" parent="MarginContainer/VBoxContainer/FractalOctaves"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 5.0
+max_value = 15.0
+value = 5.0
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/MapSize" to="." method="_on_vector_2_element_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Seed/SeedSlider" to="." method="_on_seed_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Freq/FreqSlider" to="." method="_on_freq_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Smothness/FractalLacunaritySlider" to="." method="_on_fractal_lacunarity_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/FractalOctaves/FractalOctavesSlider" to="." method="_on_fractal_octaves_slider_value_changed"]

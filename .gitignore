@@ -1,0 +1,18 @@
+# Godot 4+ specific ignores
+.godot/
+
+# Obsidian specific ignores
+.obsidian/
+
+# ignore prototype area
+.prototype/
+
+# ignore Docs
+Doc/
+
+# ignore VSCode workspace
+HexProject.code-workspace
+
+# ignore macOS .DS_Store files
+.DS_Store
+
